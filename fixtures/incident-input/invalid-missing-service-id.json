@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "service_tier": "tier_1",
+  "incident_description": "Orders requests are experiencing elevated latency.",
+  "observed_symptoms": [
+    "orders request latency increased"
+  ]
+}

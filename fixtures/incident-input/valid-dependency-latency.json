@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "service_id": "orders",
+  "service_tier": "tier_1",
+  "incident_description": "Orders requests are slow while waiting on Payments.",
+  "log_summary": "Orders dependency timing logs show increased Payments response duration.",
+  "observed_symptoms": [
+    "orders request latency increased",
+    "payments dependency latency increased"
+  ],
+  "recent_change_summary": "No known Orders deployment or configuration change.",
+  "dependency_context": [
+    "orders depends on payments",
+    "payments responses are significantly slower than normal"
+  ],
+  "impact_summary": "Checkout completion is delayed for some users."
+}

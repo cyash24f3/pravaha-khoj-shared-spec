@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pravaha.dev/schemas/incident-input.v1.json",
+  "title": "IncidentInputV1",
+  "description": "Bounded observable incident evidence supplied to PRAVAHA.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "service_id",
+    "service_tier",
+    "incident_description",
+    "observed_symptoms"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "service_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "service_tier": {
+      "type": "string",
+      "enum": [
+        "tier_1",
+        "tier_2",
+        "tier_3"
+      ]
+    },
+    "incident_description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "log_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "observed_symptoms": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      }
+    },
+    "recent_change_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "dependency_context": {
+      "type": "array",
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      }
+    },
+    "impact_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    }
+  }
+}
