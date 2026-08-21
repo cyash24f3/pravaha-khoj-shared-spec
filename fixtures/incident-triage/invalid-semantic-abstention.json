@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "severity": "SEV2",
+  "incident_category": "dependency_latency",
+  "failure_domain": "dependency",
+  "recommended_diagnostic_action_id": "inspect_dependency_latency",
+  "abstain_reason": "missing_required_evidence"
+}

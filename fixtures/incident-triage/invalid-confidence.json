@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "severity": "SEV3",
+  "incident_category": "slow_query",
+  "failure_domain": "database",
+  "recommended_diagnostic_action_id": "inspect_query_execution",
+  "confidence": 0.97
+}

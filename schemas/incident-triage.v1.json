@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pravaha.dev/schemas/incident-triage.v1.json",
+  "title": "IncidentTriageV1",
+  "description": "Closed model-authored PRAVAHA triage prediction.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "severity",
+    "incident_category",
+    "failure_domain",
+    "recommended_diagnostic_action_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "SEV1",
+        "SEV2",
+        "SEV3",
+        "SEV4",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "incident_category": {
+      "type": "string",
+      "enum": [
+        "dependency_latency",
+        "error_spike",
+        "pool_exhaustion",
+        "slow_query",
+        "queue_backlog",
+        "worker_crash",
+        "bad_deployment",
+        "bad_configuration",
+        "retry_storm",
+        "resource_pressure",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "failure_domain": {
+      "type": "string",
+      "enum": [
+        "application",
+        "dependency",
+        "database",
+        "worker",
+        "queue",
+        "configuration",
+        "deployment",
+        "resource",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "recommended_diagnostic_action_id": {
+      "type": "string",
+      "enum": [
+        "inspect_dependency_latency",
+        "inspect_error_rates",
+        "inspect_connection_pool",
+        "inspect_query_execution",
+        "inspect_queue_depth",
+        "inspect_worker_process",
+        "inspect_recent_deployment",
+        "inspect_runtime_configuration",
+        "inspect_retry_behavior",
+        "inspect_resource_pressure",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "abstain_reason": {
+      "type": "string",
+      "enum": [
+        "missing_required_evidence",
+        "contradictory_evidence",
+        "out_of_scope_evidence"
+      ]
+    }
+  }
+}
