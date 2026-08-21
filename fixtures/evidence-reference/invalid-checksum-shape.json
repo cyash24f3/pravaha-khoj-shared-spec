@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "orders.pool-exhaustion.runbook",
+  "source_type": "local_fixture",
+  "source_revision": "abcdef1",
+  "source_path": "evidence-samples/orders-runbook-v1.md",
+  "content_sha256": "not-a-sha256"
+}

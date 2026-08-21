@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "services": [
+    {
+      "service_id": "gateway",
+      "display_name": "Gateway",
+      "component_type": "service",
+      "description": "Receives external commerce requests."
+    },
+    {
+      "service_id": "orders",
+      "display_name": "Orders",
+      "component_type": "service",
+      "description": "Owns order-processing request flow."
+    },
+    {
+      "service_id": "payments",
+      "display_name": "Payments",
+      "component_type": "service",
+      "description": "Handles payment-related dependency work."
+    },
+    {
+      "service_id": "fulfillment-worker",
+      "display_name": "Fulfillment worker",
+      "component_type": "worker",
+      "description": "Processes durable fulfillment jobs."
+    },
+    {
+      "service_id": "postgres",
+      "display_name": "PostgreSQL",
+      "component_type": "database",
+      "description": "Stores relational commerce state."
+    },
+    {
+      "service_id": "order-job-table",
+      "display_name": "Durable order-job table",
+      "component_type": "durable_table",
+      "description": "Stores durable fulfillment work awaiting processing."
+    }
+  ]
+}

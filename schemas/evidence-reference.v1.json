@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pravaha.dev/schemas/evidence-reference.v1.json",
+  "title": "EvidenceReferenceV1",
+  "description": "Immutable reference to exact evidence content and location.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "source_type",
+    "source_revision",
+    "source_path",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "git_file",
+        "local_fixture"
+      ]
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 7,
+      "maxLength": 128
+    },
+    "source_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "logical_location": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

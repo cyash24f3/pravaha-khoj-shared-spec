@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "orders.pool-exhaustion.runbook",
+  "source_type": "local_fixture",
+  "source_revision": "80e6a738c0542da27128e4b0044b4b3f2afa8873",
+  "source_path": "evidence-samples/orders-runbook-v1.md",
+  "logical_location": "Database pool exhaustion",
+  "content_sha256": "480951c30d40313ed866cda3d7c32bb3c387f8da93d78dbfed53b81491571b23"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pravaha.dev/schemas/service-catalog.v1.json",
+  "title": "ServiceCatalogV1",
+  "description": "Stable service/component identity and bounded descriptive metadata.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "services"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "services": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "service_id",
+          "display_name",
+          "component_type"
+        ],
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "component_type": {
+            "type": "string",
+            "enum": [
+              "service",
+              "worker",
+              "database",
+              "durable_table"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      }
+    }
+  }
+}
